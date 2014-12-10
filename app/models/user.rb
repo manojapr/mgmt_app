@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  ROLES = %i[manager moderator executive]
+  has_many :tasks
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
@@ -34,7 +37,7 @@ class User < ActiveRecord::Base
       if registered_user
         return registered_user
       else
-        user = User.create(name: data["name"],
+        user = User.create(
           provider:access_token.provider,
           email: data["email"],
           uid: access_token.uid ,

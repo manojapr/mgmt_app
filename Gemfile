@@ -32,6 +32,10 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2' 
 gem 'omniauth-twitter'
 
+gem 'cancancan', '~> 1.9'
+
+gem 'bootstrap-sass'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

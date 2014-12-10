@@ -10,6 +10,10 @@
       </ul>
     </div>
   <% end %>
+  <div class="field">
+    <%= f.label :Executive %><br>
+    <%= f.collection_select :id, User.all, :user, :user, { :include_blank=>true },{ :class => "form-control"} %>
+  </div>
 
   <div class="field">
     <%= f.label :task_title %><br>
