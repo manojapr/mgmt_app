@@ -11,7 +11,7 @@
   <tbody>
     <% @tasks.each do |task| %>
       <tr>
-        <td><%= task.task_title %></td>
+        <td><%= task.title %></td>
         <td><%= link_to 'Show', task %></td>
         <td><%= link_to 'Edit', edit_task_path(task) %></td>
         <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -21,5 +21,12 @@
 </table>
 
 <br>
+
+<div class="commentfield">
+<% if can? :create, Task %>
+<%= button_to('create task', new_user_registration_path, :class => 'btn btn-large btn-primary')  %>
+<% end %>
+</div>
+
 
 <%= link_to 'New Task', new_task_path %>

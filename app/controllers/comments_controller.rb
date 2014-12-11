@@ -21,9 +21,9 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(comment_params)
-    @comment.save
-    respond_with(@comment)
+    @task = Task.find(params[:task_id])
+    @comment = @task.comments.create!(params[:content])
+    redirect_to @task
   end
 
   def update

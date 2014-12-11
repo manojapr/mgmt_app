@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :comments
 
-  resources :tasks
+  resources :tasks do
+  resources :comments
+  end
 
   resources :homes
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
